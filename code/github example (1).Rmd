@@ -1,0 +1,35 @@
+---
+title: "github example"
+output: html_document
+---
+
+
+
+```{r}
+
+library(readxl)
+megacorp <- read_excel(".../data/megacorp.xlsx")
+str(megacorp)
+
+```
+
+
+```{r}
+library(ggplot2)
+
+graph2a <- ggplot(megacorp, aes  (Unit, Profit, color = ProductLine)) +   
+  geom_point()
+
+graph2a_alternative <- ggplot(megacorp, aes(ProductLine, Profit, fill = Unit)) +   
+  stat_summary(fun=mean, geom="bar")
+graph2a_alternative
+
+levels(megacorp$Unit)
+graph2a
+
+
+```
+
+
+
+
